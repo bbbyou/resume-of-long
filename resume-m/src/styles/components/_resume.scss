@@ -17,22 +17,26 @@
 	width:100%;
 }
 %label-box{
-	font-size:14px;
+	font-size:.26rem;
 	color:#999;
 }
 %value-box{
 	padding:8px 0;
-	font-size:18px;
+	font-size:.26rem;
 	color:#333;
+
 }
 
 .info-list{
 	font-size:0;
-	padding:0 50px;
+	// padding:0;
+	text-align:left;
 	li{
 		display:inline-block;
-		padding:0 0 20px;
-		width:25%;
+		padding:0 0 .3rem;
+		width:33%;
+		text-align:center;
+		vertical-align:top;
 		span,
 		a{
 			@extend %inline-box;
@@ -62,19 +66,22 @@
 .bold-label-box{
 	@extend %inline-box;
 	@extend %label-box;
-	font-size:18px;
+	font-size:.26rem;
 	color:#333;
 	font-weight:bold;
 }
 
 .col-list{
-	margin:0 auto;
-	width:435px;
+	// margin:0 auto;
+	// width:435px;
 	text-align:left;
 	li{
-		padding:0 0 40px;
+		padding:0 0 .4rem;
 		.label-box{
 			text-align:center;
+		}
+		.value-box{
+			padding:0 .4rem;
 		}
 	}
 }
@@ -82,7 +89,7 @@
 .object-list{
 	margin:0 auto;
 	&>li{
-		padding:0 0 100px;
+		padding:0 0 1rem;
 	}
 }
 
@@ -90,46 +97,41 @@
 	width:100%;
 	font-size:0;
 	overflow:hidden;
-	display:flex;
+	// display:flex;
 	li{
-		padding:0 25px;
-		flex:1;
+		padding: 0 0 .4rem;
+		// flex:1;
 	}
 }
 .subject{
-	padding:20px 0;
+	padding:.2rem 0;
 	font-size:0;
 	transform-style:preserve-3d;
 	a{
 		position:relative;
 		display:inline-block;
-		width:100px;
-		height:100px;
+		width:2rem;
+		height:2rem;
 		background-color:#845ee4;
-		@include bg("subject-sprite.jpg",auto)
+		@include bg("subject-sprite.jpg",8rem 8rem)
 		transition:all ease-out .2s;
 		will-change:transform,box-shadow;
-		&:hover{
-			box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.8);
-			transform:scale(1.1) translateZ(100px);
-			z-index:1; 
-		}
 		@for $i from 1 through 16 {
 			@if $i < 5 {
 				&:nth-child(#{$i}){
-					background-position:(-100px * $i + 100px ) 0;
+					background-position:(-2rem * $i + 2rem ) 0;
 				}
 			}@else if $i >= 5 and  $i < 9{
 				&:nth-child(#{$i}){
-					background-position:(-100px * $i + 500px ) -100px;
+					background-position:(-2rem * $i + 10rem ) -2rem;
 				}
 			}@else if $i >= 9 and $i < 13 {
 				&:nth-child(#{$i}){
-					background-position:(-100px * $i + 900px ) -200px;
+					background-position:(-2rem * $i + 18rem ) -4rem;
 				}
 			}@else if $i >= 13 and $i <=16{
 				&:nth-child(#{$i}){
-					background-position:(-100px * $i + 1300px ) -300px;
+					background-position:(-2rem * $i + 26rem ) -6rem;
 				}
 			}
 		}
@@ -138,91 +140,49 @@
 
 .app-page{
 	position:relative;
-	padding:20px 0;
-	height:440px;
+	padding:.2rem 0;
+	height:4.4rem;
 	font-size:0;
 	transform-style:preserve-3d;
 	perspective:3000;
 	// overflow:hidden;
 	a{
 		position:absolute;
-		top:20px;
-		left:0;
+		top:.2rem;
+		// left:0;
 		display:inline-block;
-		width:224px;
-		height:400px;
+		width:2.24rem;
+		height:4rem;
 		background-color:#845ee4;
 		transition:all ease-out .2s;
 		will-change:transform,box-shadow;
-		@include bg("app-sprite.jpg",auto)
-		box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+		@include bg("app-sprite.jpg",6.72rem 4rem)
+		box-shadow: 0 0 .1rem 0 rgba(0, 0, 0, 0.2);
 		&:nth-child(1){
+			left:0;
 			background-position:0 0;
 			z-index:3;
 		}
 		&:nth-child(2){
-			left:113px;
-			background-position:-224px 0;
+			left:50%;
+			margin-left:-1.12rem;
+			background-position:-2.24rem 0;
 			z-index:2;
-			// box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.2);
 		}
 		&:nth-child(3){
-			left:226px;
-			background-position:-448px 0;
+			right:0;
+			background-position:-4.48rem 0;
 			z-index:1;
-		}
-	}
-	&.app0{
-		a{
-			&:nth-child(1){
-				transform:translateZ(100px);
-				box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, .4);
-			}
-			&:nth-child(2),
-			&:nth-child(3){
-				transform:none;
-			}
-		}
-	}
-	&.app1{
-		a{
-			&:nth-child(1){
-				transform:translateX(-112px);
-			}
-			&:nth-child(2){
-				transform:translateZ(100px);
-				z-index:4;
-				box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, .4);
-			}
-			&:nth-child(3){
-				transform:translateX(20px);
-			}
-		}
-	}
-	&.app2{
-		a{
-			&:nth-child(1){
-				transform:translateX(-112px);
-			}
-			&:nth-child(2){
-				transform:translateX(-100px);
-				z-index:4;
-			}
-			&:nth-child(3){
-				transform:translate3d(-10px,0,100px);
-				z-index:4;
-				box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, .4);
-			}
 		}
 	}
 }
 
 .object-col-list2{
 	margin:0 auto;
-	width:860px;
+	// width:860px;
 	list-style:none;
 	li{
-		padding: 0 0 100px;
+		padding: 0 0 1rem;
 		.value-box{
 			text-align:left;
 		}
@@ -230,89 +190,83 @@
 }
 
 .col-img{
-	margin:10px 0;
-	height:327px;
+	margin:.1rem 0;
+	// height:3.27rem;
 	background-color:#53505a;
-	@include bg("object2.png");
-	@for $i from 1 through 5 {
-		&.img#{$i}{
-			background-position:0 (-327px * $i + 327px);
-		}
+	// @include bg("object2.png",8.53rem 13.08rem);
+	// @for $i from 1 through 5 {
+	// 	&.img#{$i}{
+	// 		background-position:center (-3.27rem * $i + 3.27rem);
+	// 	}
+	// }
+
+	img{
+		width:100%;
+		vertical-align:middle;
 	}
 }
 
 .col-img-list{
-	margin:10px 0;
-	padding:20px 0;
-	height:327px;
+	margin:.1rem 0;
+	padding:.2rem 0;
+	height:3.27rem;
 	background-color:#53505a;
-	&:before {
-    	font-size: 0;
-	    content: "";
-	    height: 100%;
-	}
 }
 
 .drag-img{
-	height:484px;
-	@include bg("dragui.jpg");
-	background-size:100%;
-	a{
-		display:inline-block;
+	img{
 		width:100%;
-		height:100%;
 	}
 }
 
 .col-img-item{
 	display:inline-block;
-	margin:20px 25px;
-	padding:22px 10px;
-	width:100px;
-	height:100px;
+	margin:.2rem .1rem;
+	padding:.16rem 0;
+	width:1rem;
+	height:1rem;
 	background-color:#2d8cf0;
 	border-radius:50%;
-	font-size:18px;
+	font-size:.2rem;
 	color:#fff;
 	vertical-align:middle;
 	transition:all .2s linear;
 	will-change:box-shadow;
-	&:hover{
-		transform:translateY(-10px);
-		box-shadow: 0px 4px 6px 0px rgba(45, 140, 240, 0.2);
-	}
 }
 
 .col-one-line{
-	padding:36px 0;
+	padding:.34rem 0;
 }
 
 .company{
 	margin:0 auto;
-	width:638px;
 	text-align:left;
+	&>p{
+		font-size:0;
+	}
 }
 .company-logo{
 	display:inline-block;
 	vertical-align:middle;
-	width:258px;
-	height:90px;
+	width:50%;
+	height:.9rem;
 	&.logo1{
-		@include bg("logo1.png",auto,left center)
+		@include bg("logo1.png",1.99rem .51rem,center center)
 	}
 	&.logo2{
-		@include bg("logo2.png",auto,center center)
+		@include bg("logo2.png",contain,center center)
 	}
 	&.logo3{
-		@include bg("logo3.png",auto,center center)
+		@include bg("logo3.png",contain,center center)
 	}
 }
 
 .company-info{
 	display:inline-block;
 	vertical-align:middle;
-	font-size:24px;
+	font-size:.3rem;
 	color:#333;
+	width:50%;
 	text-align:left;
 	.company-name{
 		font-weight:bold;
@@ -325,9 +279,9 @@
 .job-content-list{
 	padding:10px 0 20px;
 	// color:#666;
-	font-size:18px;
+	font-size:.26rem;
 	h5{
-		font-size:14px;
+		font-size:.26rem;
 		color:#999;
 		padding:6px 0;
 		// font-weight:bold;

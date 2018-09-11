@@ -6,7 +6,7 @@
             <ul class="info-list">
               <li v-for="(item,i) in info">
                 <span>{{ item.label }}</span>
-                <a>{{ item.value }}</a>
+                <a :href="item.href ? item.href : 'javascript:void(0)'">{{ item.value }}</a>
               </li>
             </ul>
           </div>
@@ -46,8 +46,8 @@
                     </li>
                     <li>
                         <p class="value-box">(2)公司各个APP多个迭代版本的动态&静态启动图制作。以下示例为动态启动图</p>
-                        <div class="app-page" :class="appClsName" @mouseout="hoverOut()">
-                          <a v-for="(item,i) in appPage" :href="item.href" @mouseover="hover(i)" target="_blank"></a>
+                        <div class="app-page" :class="appClsName" >
+                          <a v-for="(item,i) in appPage" :href="item.href" target="_blank"></a>
                         </div>
                         <p class="label-box">部分代表APP启动图</p>
                     </li>
@@ -58,22 +58,30 @@
                 <ol class="object-col-list2">
                   <li>
                     <p class="value-box">(1)系统使用技术栈为webpack + Vue + iView + Sass + Nodejs。</p>
-                    <div class="col-img img1"></div>
+                    <div class="col-img">
+                      <img src="../images/object-1.png">
+                    </div>
                     <p class="label-box">各技术栈职责</p>
                   </li>
                   <li>
                     <p class="value-box">(2)系统初步内置三个子系统：①权限系统 ②机构系统 ③财务系统</p>
-                    <div class="col-img img2"></div>
+                    <div class="col-img">
+                      <img src="../images/object-2.png">
+                    </div>
                     <p class="label-box">三个系统之间的串联关系</p>
                   </li>
                   <li>
                     <p class="value-box">(3)系统采用前后端分离，Java做后端服务，Nodejs做中端网关，前后端通信采取Ajax异步请求。Node.js做中间层做请求拦截并且做数据格式处理与请求轮询及高并分发。</p>
-                    <div class="col-img img3"></div>
+                    <div class="col-img">
+                      <img src="../images/object-3.png">
+                    </div>
                     <p class="label-box">前中后端关系</p>
                   </li>
                   <li>
                     <p class="value-box">(4)个人负责的模块是机构系统中的销售人员管理与销售层级管理，即为销售人员的增删查改与销售层级树结构的增删查改。</p>
-                    <div class="col-img img4"></div>
+                    <div class="col-img">
+                      <img src="../images/object-4.png">
+                    </div>
                     <p class="label-box">个人负责模块</p>
                   </li>
                 </ol>
@@ -95,8 +103,8 @@
                 <ol class="object-col-list2">
                     <li>
                       <p class="value-box">(1) 工单系统是JSP + JAVA 等后端集成系统。流程化过程需要构造大量简单表单。<br/>(2) 个人负责模块为表单设计模块，主要使用JQ及插件：JQui + flatpickr + JQ.htmlClean。<br/>(3) 其中用到大量拖拽事件，自行封装了两个组件 drag.js + drag-attrSetting.js。<br/>(4) 项目历时两个月，无产品无设计，自主和提供服务JAVA人员梳理需求，并且自主设计及到最后的实现输出。<br/>(5) 项目目的在于可快速构建简单表单，提升流程化工单的生产效率。目前一版提供常用流式基本布局，控件: 单行文本框(input)、多行文本框(textarea)、下拉选择框(select)、复选框组(checkbox)、单选框组(radio)、日期控件(flatpickr)等多个基本表单插件。最终输出得到需求人及后端人员一致好评。</p>
-                      <div class="col-img-list drag-img">
-                        <a href="//llpp8.cn/object/dragui/html" target="_blank"></a>
+                      <div class="drag-img">
+                        <img src="../images/dragui.jpg">
                       </div>
                     </li>
                 </ol>
@@ -113,7 +121,7 @@
                     <p>
                       <i class="company-logo" :class="`logo${i+1}`"></i>
                       <ol class="company-info">
-                        <li class="company-name">{{item.company}}<span>{{item.time}}</span></li>
+                        <li class="company-name">{{item.company}}</li>
                         <li class="company-jobname">{{item.job}}</li>
                       </ol>
                     </p>
@@ -131,8 +139,7 @@
               </li>
             </ul>
           </div>
-
-
+          
         </div>
     </div>
 </template>
@@ -164,10 +171,12 @@ export default {
         value:"龙先杰"
       },{
         label:"邮箱",
-        value:"78939349@qq.com"
+        value:"78939349@qq.com",
+        href:"mailto:78939349@qq.com"
       },{
         label:"电话",
-        value:"18977018662"
+        value:"18977018662",
+        href:"tel:18977018662"
       },{
         label:"年龄",
         value:"25"
@@ -187,13 +196,13 @@ export default {
 
       this.subject = [{
         title:"港股邀请开户专题页",
-        href:"//llpp8.cn/subject/act/inviteAccount/pc"
+        href:"//llpp8.cn/subject/act/inviteAccount/h5"
       },{
         title:"理财加息过冬活动",
-        href:"//llpp8.cn/subject/act/jiaxi-winter2016/pc"
+        href:"//llpp8.cn/subject/act/jiaxi-winter2016/h5"
       },{
         title:"金融圈理财卡",
-        href:"//llpp8.cn/subject/act/wealthCard/pc"
+        href:"//llpp8.cn/subject/act/wealthCard/h5"
       },{
         title:"金融圈微信公众号二周年",
         href:"//llpp8.cn/subject/act/wechatData"
@@ -205,7 +214,7 @@ export default {
         href:"//llpp8.cn/subject/act/birthday2017/h5"
       },{
         title:"轻松玩转港美股",
-        href:"//llpp8.cn/subject/act/easyFun4/pc"
+        href:"//llpp8.cn/subject/act/easyFun4/h5"
       },{
         title:"金融圈2017年迎新纳福",
         href:"//llpp8.cn/subject/act/benison/h5"
@@ -214,25 +223,22 @@ export default {
         href:"//llpp8.cn/subject/act/lottery"
       },{
         title:"全民炒股大赛第二期",
-        href:"//llpp8.cn/subject/act/stockCompetition/pc"
+        href:"//llpp8.cn/subject/act/stockCompetition/h5"
       },{
         title:"金融圈两周年",
-        href:"//llpp8.cn/subject/act/JRQtwoyears/pc"
+        href:"//llpp8.cn/subject/act/JRQtwoyears/h5"
       },{
         title:"理财2017年度运营报告",
-        href:"//llpp8.cn/subject/act/report2017/pc"
+        href:"//llpp8.cn/subject/act/report2017/h5"
       },{
         title:"金融圈三周年",
-        href:"//llpp8.cn/subject/act/ThreeYearsThanks/pc/html"
+        href:"//llpp8.cn/subject/act/ThreeYearsThanks/h5/html"
       },{
         title:"理财欢乐砸金蛋",
         href:"//llpp8.cn/subject/act/worldCup/baiyiEggs/html"
       },{
         title:"永道e贷世界杯竞猜4强",
         href:"//llpp8.cn/subject/act/worldCup/html"
-      },{
-        title:"查看更多",
-        href:""
       }]
 
       this.appPage = [{
@@ -337,15 +343,7 @@ export default {
           txt:"负责活动H5页面的前端实现。"
         }]
       }]
-
-
     },
-    hover(i){
-      this.appClsName = `app${i}`;
-    },
-    hoverOut(){
-      this.appClsName = ``;
-    }
   }
 }
 </script>

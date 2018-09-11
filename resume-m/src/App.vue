@@ -19,8 +19,6 @@ export default {
     return {
       actived:false,
       resume:true,
-      ua:navigator.userAgent,
-      isMobile:null,
       loadData:{
         Endload:false
       }
@@ -31,11 +29,8 @@ export default {
   },
   methods:{
     init(){
-      this.isMobile = this.ua.match(/iphone|ipod|ipad|linux|android/gi);
-      // console.log(this.isMobile)
       setTimeout(() => {
         this.actived = true;
-        // this.loadData.Endload = true;
       },1000)
     },
   }

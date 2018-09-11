@@ -1,0 +1,151 @@
+@import "../base/_base.scss";
+
+.link{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-2rem;
+	margin-top:-2rem;
+	width:4rem;
+	height:5.2rem;
+	transition: all .3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+	will-change:transform;
+}
+
+.head{
+	margin:0 auto 12px;
+	width:3rem;
+	height:3rem;
+ 	background-color:#845ee4;
+ 	border-radius:50%;
+ 	@include bg("head.png",contain)
+}
+.link-list{
+	position:relative;
+	width:3rem;
+	margin:.3rem auto;
+	text-align:center;
+	font-size:0;
+	li{
+		position:relative;
+		display:inline-block;
+		width:48%;
+		font-size:0;
+		a{
+			border:1px solid #845ee4;
+			border-radius:.1rem;
+			padding:.1rem 0;
+			display:inline-block;
+			width:100%;
+			height:100%;
+			color:#845ee4;
+			font-size:.3rem;
+			transition:color .2s linear;
+			will-change:color;
+			cursor:pointer;
+			
+		}
+		&:first-child{
+			margin:0 4% 0 0;
+		}
+		&.actived{
+			a{
+				color:#845ee4;
+				&:before,
+				&:after{
+					transform:none;
+					opacity:1;
+				}
+			}
+		}
+	}
+}
+
+.nav{
+	position:fixed;
+	right:.3rem;
+	bottom:.8rem;
+	width:1rem;
+	transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275) .8s;
+	will-change:transform;
+	transform:scale(0);
+	z-index:10;
+	&.actived{
+		.nav-btn{
+			opacity:1;
+		}
+		.home-nav-btn{
+			background:rgba(132	,94	,228,1);
+			&:before{
+				border-color:#fff;
+			}
+		}
+		.abs-btn{
+			transition: transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275),opacity .2s linear .05s;
+			opacity:1;
+		}
+		.top-nav-btn{
+			transform:translate(0rem,-1.4rem);
+		}
+		.resume-nav-btn{
+			transform:translate(-1rem,-1rem);
+		}
+		.work-nav-btn{
+			transform:translate(-1.4rem,0rem);
+		}
+	}
+}
+
+.nav-btn{
+	display:block;
+	width:1rem;
+	height:1rem;
+	border:1px solid #845ee4;
+	border-radius:50%;
+	padding:.26rem 0;
+	font-size:.26rem;
+	color:#845ee4;
+	text-align:center;
+	background:rgba(132	,94	,228,.2);
+	opacity:.3;
+	&.actived{
+		background:rgba(132	,94	,228,1);
+		color:#fff;
+	}
+}
+
+.abs-btn{
+	position:absolute;
+	top:0;
+	left:0;
+	opacity:0;
+	transition: transform .3s cubic-bezier(0.6, -0.28, 0.735, 0.045),opacity .2s linear .1s;
+	will-change:transform,opacity;
+}
+
+.home-nav-btn{
+	position:relative;
+	z-index:3;
+	transition: all .3s linear;
+	will-change:background;
+	&:before{
+		content:"";
+		position:absolute;
+		top:50%;
+		left:50%;
+		margin-top:-23%;
+		margin-left:-23%;
+		border:1px solid #845ee4;
+		border-radius:.06rem;
+		width:46%;
+		height:46%;
+		transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		will-change:border;
+	}
+}
+
+.actived{
+	.link{
+		z-index:3;
+	}	
+}
