@@ -19,8 +19,5 @@ new Vue({
   	if(!!!this.isMobile){
   		location.href = "//llpp8.cn/resume";
   	}
-  },
-  created(){
-
   }
 })

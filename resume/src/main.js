@@ -9,5 +9,14 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  data:{
+  	isMobile:null,
+  },
+  beforeCreate() {
+  	this.isMobile = navigator.userAgent.match(/iphone|ipod|ipad|linux|android/gi);
+  	if(!!this.isMobile){
+  		location.href = "//llpp8.cn/resume-m";
+  	}
+  },
 })

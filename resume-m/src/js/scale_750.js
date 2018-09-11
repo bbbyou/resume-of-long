@@ -12,7 +12,7 @@
 
         console.log(width)
         if(width > 750){
-            location.href = "//llpp8.cn/resume";
+            win.location.href = "//llpp8.cn/resume";
         }
 
         if (width / dpr > 750) {
