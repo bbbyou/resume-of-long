@@ -72,10 +72,6 @@ export default {
     },
     navFn(){
       this.navShow = !this.navShow;
-    },
-    backTop(){
-      let body = document.body;
-      body.scrollTo(() => body.scrollTop = 0)
     }
   },
   computed:{
