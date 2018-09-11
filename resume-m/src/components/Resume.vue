@@ -104,7 +104,7 @@
                     <li>
                       <p class="value-box">(1) 工单系统是JSP + JAVA 等后端集成系统。流程化过程需要构造大量简单表单。<br/>(2) 个人负责模块为表单设计模块，主要使用JQ及插件：JQui + flatpickr + JQ.htmlClean。<br/>(3) 其中用到大量拖拽事件，自行封装了两个组件 drag.js + drag-attrSetting.js。<br/>(4) 项目历时两个月，无产品无设计，自主和提供服务JAVA人员梳理需求，并且自主设计及到最后的实现输出。<br/>(5) 项目目的在于可快速构建简单表单，提升流程化工单的生产效率。目前一版提供常用流式基本布局，控件: 单行文本框(input)、多行文本框(textarea)、下拉选择框(select)、复选框组(checkbox)、单选框组(radio)、日期控件(flatpickr)等多个基本表单插件。最终输出得到需求人及后端人员一致好评。</p>
                       <div class="drag-img">
-                        <img src="../images/dragui.jpg">
+                        <img src="//llpp8.cn/static/img/dragui.jpg">
                       </div>
                     </li>
                 </ol>
@@ -139,7 +139,7 @@
               </li>
             </ul>
           </div>
-          
+
         </div>
     </div>
 </template>
