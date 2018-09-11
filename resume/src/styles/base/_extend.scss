@@ -1,0 +1,94 @@
+
+%relative {
+    position: relative;
+}
+
+%left {
+    float: left;
+}
+
+%absolute {
+    position: absolute;
+}
+
+%fixed {
+    position: fixed;
+}
+
+%block {
+    display: block;
+}
+
+%inline-block {
+    display: inline-block;
+}
+
+%table-cell {
+    display: table-cell;
+}
+
+%none {
+    display: none;
+}
+
+%right {
+    float: right;
+}
+
+%content {
+    content: '';
+    @extend %block;
+}
+
+%box {
+    display: box;
+    display: -webkit-box;
+}
+
+%flex {
+    display: flex;
+    display: -webkit-flex;
+}
+
+%clearfix {
+    clear: both;
+    &:before,
+    &:after {
+        @extend %content;
+        height: 0;
+        clear: both;
+    }
+}
+
+%boxVertical {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+%text-center {
+    text-align: center;
+}
+
+%vertical-middle {
+    vertical-align: middle;
+}
+
+%vertical-top {
+    vertical-align: top;
+}
+
+%bgSize {
+    background-size: 100% 100%;
+}
+
+%transition{
+    transition:all .3s linear;
+}
+
+@for $i from 0 through 100{
+    %font#{$i}{
+        font-size:0.01rem * $i;
+    }
+}

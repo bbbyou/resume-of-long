@@ -1,0 +1,57 @@
+//常用宏
+@mixin doc-wrap(){
+	width:100%;
+	margin:0 auto;
+	overflow:hidden;
+}
+@mixin doc-wrap-center($width:1200px){
+	position:$reltve;
+	width:$width;
+	margin:0 auto;
+	overflow:hidden;
+}
+@mixin bg($img,$size:auto,$position:top left,$repeat:no-repeat){
+	background-image:url( './images/' + $img );
+	background-size:$size;
+	background-repeat:$repeat;
+	background-position:$position;
+}
+@mixin placeholder-color($color:#bbb){
+	&::-webkit-input-placeholder{ 
+		color:$color; 
+	} 
+}
+@mixin appearance{
+    -webkit-appearance: none;
+    appearance: none;
+}
+@mixin transition($second:.3s){
+	-webkit-transition:all $second;
+	transition:all $second;
+}
+@mixin middle-ceter($w,$h){
+	@extend %absolute;
+	top:50%;
+	left:50%;
+	margin-top:-$h/2;
+	margin-left:-$w/2;
+	width:$w;
+	height:$h;
+}
+@mixin ellipsis($w:auto) {
+    width: $w;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+@mixin scrollBar($w:8px,$h:30px,$bgcolor:#dcdcdc,$barcolor:#000,$cornercolor:#00f){
+	/*自定义滚动条颜色*/
+	::-webkit-scrollbar{width:$w;height:$h;} /*滚动条整体部分，其中的属性有width,height,background,border（就和一个块级元素一样）等*/
+	::-webkit-scrollbar-button{display:none;} /*滚动条两端的按钮。可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果*/
+	::-webkit-scrollbar-track{display:none;} /*滚动条的外层轨道。可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果*/
+	::-webkit-scrollbar-track-piece{background-color:$bgcolor;} /*内层轨道，滚动条中间部分（除去）*/
+	::-webkit-scrollbar-thumb{width:8px;height:30px;background-color:$barcolor;border-radius:20px;} /*滑块部分*/
+	::-webkit-scrollbar-corner{background-color:$cornercolor;} /*横向滚动条和纵向滚动条相交处尖角的颜色*/
+}

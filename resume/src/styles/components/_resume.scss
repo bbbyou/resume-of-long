@@ -1,0 +1,316 @@
+@import "../base/_base.scss";
+
+.resume{
+	position:relative;
+	transition:all .3s linear .1s;
+	transform:translateY(80px);
+	z-index:1;
+	opacity:0;
+	&.show{
+		transform:none;
+		opacity:1;
+	}
+}
+
+%inline-box{
+	display:inline-block;
+	width:100%;
+}
+%label-box{
+	font-size:14px;
+	color:#999;
+}
+%value-box{
+	padding:8px 0;
+	font-size:18px;
+	color:#333;
+}
+
+.info-list{
+	font-size:0;
+	padding:0 50px;
+	li{
+		display:inline-block;
+		padding:0 0 20px;
+		width:25%;
+		span,
+		a{
+			@extend %inline-box;
+		}
+		span{
+			@extend %label-box;
+		}
+		a{
+			@extend %value-box;
+		}
+	}
+}
+
+.label-box,
+.value-box{
+	@extend %inline-box;
+}
+
+.label-box{
+	@extend %label-box;
+}
+
+.value-box{
+	@extend %value-box;
+}
+
+.bold-label-box{
+	@extend %inline-box;
+	@extend %label-box;
+	font-size:18px;
+	color:#333;
+	font-weight:bold;
+}
+
+.col-list{
+	margin:0 auto;
+	width:435px;
+	text-align:left;
+	li{
+		padding:0 0 40px;
+		.label-box{
+			text-align:center;
+		}
+	}
+}
+
+.object-list{
+	margin:0 auto;
+	&>li{
+		padding:0 0 100px;
+	}
+}
+
+.object-col-list{
+	width:100%;
+	font-size:0;
+	overflow:hidden;
+	display:flex;
+	li{
+		padding:0 25px;
+		flex:1;
+	}
+}
+.subject{
+	padding:20px 0;
+	font-size:0;
+	transform-style:preserve-3d;
+	a{
+		position:relative;
+		display:inline-block;
+		width:100px;
+		height:100px;
+		background-color:#845ee4;
+		@include bg("subject-sprite.jpg",auto)
+		transition:all ease-out .2s;
+		will-change:transform,box-shadow;
+		&:hover{
+			box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.8);
+			transform:scale(1.1) translateZ(100px);
+			z-index:1; 
+		}
+		@for $i from 1 through 16 {
+			@if $i < 5 {
+				&:nth-child(#{$i}){
+					background-position:(-100px * $i + 100px ) 0;
+				}
+			}@else if $i >= 5 and  $i < 9{
+				&:nth-child(#{$i}){
+					background-position:(-100px * $i + 500px ) -100px;
+				}
+			}@else if $i >= 9 and $i < 13 {
+				&:nth-child(#{$i}){
+					background-position:(-100px * $i + 900px ) -200px;
+				}
+			}@else if $i >= 13 and $i <=16{
+				&:nth-child(#{$i}){
+					background-position:(-100px * $i + 1300px ) -300px;
+				}
+			}
+		}
+	}
+}
+
+.app-page{
+	position:relative;
+	padding:20px 0;
+	height:440px;
+	font-size:0;
+	transform-style:preserve-3d;
+	perspective:3000;
+	// overflow:hidden;
+	a{
+		position:absolute;
+		top:20px;
+		left:0;
+		display:inline-block;
+		width:224px;
+		height:400px;
+		background-color:#845ee4;
+		transition:all ease-out .2s;
+		will-change:transform,box-shadow;
+		@include bg("app-sprite.jpg",auto)
+		box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+		&:nth-child(1){
+			background-position:0 0;
+			z-index:3;
+		}
+		&:nth-child(2){
+			left:113px;
+			background-position:-224px 0;
+			z-index:2;
+			// box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.2);
+		}
+		&:nth-child(3){
+			left:226px;
+			background-position:-448px 0;
+			z-index:1;
+		}
+	}
+	&.app0{
+		a{
+			&:nth-child(1){
+				transform:translateZ(100px);
+				box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, .4);
+			}
+			&:nth-child(2),
+			&:nth-child(3){
+				transform:none;
+			}
+		}
+	}
+	&.app1{
+		a{
+			&:nth-child(1){
+				transform:translateX(-112px);
+			}
+			&:nth-child(2){
+				transform:translateZ(100px);
+				z-index:4;
+				box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, .4);
+			}
+			&:nth-child(3){
+				transform:translateX(20px);
+			}
+		}
+	}
+	&.app2{
+		a{
+			&:nth-child(1){
+				transform:translateX(-112px);
+			}
+			&:nth-child(2){
+				transform:translateX(-100px);
+				z-index:4;
+			}
+			&:nth-child(3){
+				transform:translate3d(-10px,0,100px);
+				z-index:4;
+				box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, .4);
+			}
+		}
+	}
+}
+
+.object-col-list2{
+	margin:0 auto;
+	width:860px;
+	list-style:none;
+	li{
+		padding: 0 0 100px;
+		.value-box{
+			text-align:left;
+		}
+	}
+}
+
+.col-img{
+	margin:10px 0;
+	height:327px;
+	background-color:#53505a;
+	@include bg("object2.png");
+	@for $i from 1 through 5 {
+		&.img#{$i}{
+			background-position:0 (-327px * $i + 327px);
+		}
+	}
+}
+
+.col-img-list{
+	margin:10px 0;
+	padding:20px 0;
+	height:327px;
+	background-color:#53505a;
+	&:before {
+    	font-size: 0;
+	    content: "";
+	    height: 100%;
+	}
+}
+
+.drag-img{
+	height:484px;
+	@include bg("dragui.jpg");
+	background-size:100%;
+	a{
+		display:inline-block;
+		width:100%;
+		height:100%;
+	}
+}
+
+.col-img-item{
+	display:inline-block;
+	margin:20px 25px;
+	padding:22px 10px;
+	width:100px;
+	height:100px;
+	background-color:#2d8cf0;
+	border-radius:50%;
+	font-size:18px;
+	color:#fff;
+	vertical-align:middle;
+	transition:all .2s linear;
+	will-change:box-shadow;
+	&:hover{
+		transform:translateY(-10px);
+		box-shadow: 0px 4px 6px 0px rgba(45, 140, 240, 0.2);
+	}
+}
+
+.col-one-line{
+	padding:36px 0;
+}
+
+.company{
+	margin:0 auto;
+	width:684px;
+}
+.company-logo{
+	display:inline-block;
+	vertical-align:middle;
+	width:258px;
+	height:90px;
+	&.logo1{
+		@include bg("logo1.png",auto,left center)
+	}
+}
+
+.company-info{
+	display:inline-block;
+	vertical-align:middle;
+	font-size:20px;
+	color:#333;
+	text-align:left;
+	.company-name{
+		// font-weight:bold;
+		span{
+			font-size:12px;
+		}	
+	}
+}
